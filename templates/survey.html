@@ -5,9 +5,9 @@
     <div class="max-w-4xl mx-auto px-8 py-24">
         <h1>설문 조사 페이지 made by MJ</h1><br>
         <h4>오즈스쿨 미니 프로젝트로 만든 설문조사 페이지 입니다.<br>
-            가벼운 마음으로 설문에 응해주시면 됩니다. 감사합니다. - MJ 올림🙇🏻‍♀️</h4><br>
+            가벼운 마음으로 설문에 응해주시면 됩니다. 감사합니다. - MJ🙇🏻‍♀️</h4><br>
 
-        <form id="surveyForm" class="space-y-4" method="post">
+        <form id="surveyForm" class="space-y-4" method="post"> <!--action="{% url 'question' %}"--> 
             {% csrf_token %}
             <label for="name" class="block">이름:</label>
             <input type="text" id="name" name="name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"><br>
@@ -45,10 +45,11 @@
                 <div class="flex items-center ml-6 space-x-2">
                     <input type="radio" id="over_60" name="age_group" value="60세 이상" class="form-radio h-4 w-4 text-indigo-600"><label for="over_60" class="block font-medium">60세 이상</label>
                 </div>
+                <br>
             </fieldset>
 
             <div class="flex justify-center">
-                <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">설문 시작</button>
+                <button type="submit" action="{% url 'question' %} class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">설문 시작</button>
             </div>
         </form>
     </div>
