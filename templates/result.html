@@ -1,0 +1,10 @@
+{% extends 'layouts/box.html' %}
+
+{% block content %}
+
+<!-- Plotly 차트 HTML 코드를 여기에 삽입 -->
+<div>{{ pie_chart_html|safe }}</div>
+{% for chart_html in charts_html %}
+    <div>{{ chart_html|safe }}</div>
+{% endfor %}
+{% endblock %}

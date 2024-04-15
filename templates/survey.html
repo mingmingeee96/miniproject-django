@@ -1,0 +1,56 @@
+{% extends 'layouts/box.html' %}
+
+{% block content %}
+
+    <div class="max-w-4xl mx-auto px-8 py-24">
+        <h1>설문 조사 페이지 made by MJ</h1><br>
+        <h4>오즈스쿨 미니 프로젝트로 만든 설문조사 페이지 입니다.<br>
+            가벼운 마음으로 설문에 응해주시면 됩니다. 감사합니다. - MJ 올림🙇🏻‍♀️</h4><br>
+
+        <form id="surveyForm" class="space-y-4" method="post">
+            {% csrf_token %}
+            <label for="name" class="block">이름:</label>
+            <input type="text" id="name" name="name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"><br>
+            
+            <fieldset class="flex space-y-2">
+                <legend class="block font-medium">성별:</legend>
+                <div class="flex items-center space-x-2">
+                    <input type="radio" id="male" name="gender" value="male" class="form-radio h-4 w-4 text-indigo-600"><label for="male" class="block font-medium">남성</label>
+                </div>
+                <div class="flex items-center ml-8 space-x-2">
+                    <input type="radio" id="female" name="gender" value="female" class="form-radio h-4 w-4 text-indigo-600"><label for="female" class="block font-medium">여성</label>
+                </div>
+                <div class="flex items-center ml-8 space-x-2">
+                    <input type="radio" id="none" name="gender" value="none" class="form-radio h-4 w-4 text-indigo-600"><label for="female" class="block font-medium">기타</label>
+                </div>
+            </fieldset>
+
+            <fieldset class="flex space-y-2">
+                <legend class="block font-medium">연령대:</legend>
+                <div class="flex items-center space-x-2">
+                    <input type="radio" id="under_20" name="age_group" value="20세 미만" class="form-radio h-4 w-4 text-indigo-600"><label for="under_20" class="block font-medium">20세 미만</label>
+                </div>
+                <div class="flex items-center ml-6 space-x-2">
+                    <input type="radio" id="20s" name="age_group" value="20대" class="form-radio h-4 w-4 text-indigo-600"><label for="20s" class="block font-medium">20대</label>
+                </div>
+                <div class="flex items-center ml-6 space-x-2">
+                    <input type="radio" id="30s" name="age_group" value="30대" class="form-radio h-4 w-4 text-indigo-600"><label for="30s" class="block font-medium">30대</label>
+                </div>
+                <div class="flex items-center ml-6 space-x-2">
+                    <input type="radio" id="40s" name="age_group" value="40대" class="form-radio h-4 w-4 text-indigo-600"><label for="40s" class="block font-medium">40대</label>
+                </div>
+                <div class="flex items-center ml-6 space-x-2">
+                    <input type="radio" id="50s" name="age_group" value="50대" class="form-radio h-4 w-4 text-indigo-600"><label for="50s" class="block font-medium">50대</label>
+                </div>
+                <div class="flex items-center ml-6 space-x-2">
+                    <input type="radio" id="over_60" name="age_group" value="60세 이상" class="form-radio h-4 w-4 text-indigo-600"><label for="over_60" class="block font-medium">60세 이상</label>
+                </div>
+            </fieldset>
+
+            <div class="flex justify-center">
+                <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">설문 시작</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

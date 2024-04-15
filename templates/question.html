@@ -1,0 +1,35 @@
+{% extends 'layouts/box.html' %}
+{% block content %}
+
+
+{% if questions.has_next %}
+<div class="flex items-center justify-center">
+    {% for question in questions %}
+        {{ question.content }}  <!-- 현재 페이지의 질문 내용 출력 -->        
+</div><br><br>
+
+<form method="post" action="{% url 'question' %}" class="flex items-center justify-center gap-24">
+    {% csrf_token %}
+    <input type="hidden" name="question_id" value="{{ question.id }}">
+    <input type="hidden" name="page" value="{{ questions.number }}">
+    <button type="submit" name="response" value="1" class="page-link bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">예</button>
+    <button type="submit" name="response" value="0" class="page-link bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">아니요</button>
+</form>
+    {% endfor %}
+    {% else %}
+    <div class="flex items-center justify-center">
+        {% for question in questions %} 
+        {{ question.content }}    <!-- 마지막 페이지의 질문 내용 출력 -->
+    </div><br><br>
+
+<form method="post" action="{% url 'question' %}" class="flex items-center justify-center gap-24">
+    {% csrf_token %}
+    <input type="hidden" name="question_id" value="{{ question.id }}">
+    <input type="hidden" name="page" value="{{ questions.number }}">
+    <button class="page-link bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600" href="" type="submit" name="response" value="1">예</button>
+    <button class="page-link bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600" href="" type="submit" name="response" value="0">아니요</button>
+</form>
+
+    {% endfor %}
+{% endif %}
+{% endblock %}
