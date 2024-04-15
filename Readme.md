@@ -390,3 +390,13 @@ path('settings/', profile_settings_view, name='profile-settings'),
 
 여기까지가 기본 page setting이다. 이제 설문조사 페이지를 만들어보자!! (본격적)
 
+1) app 추가
+```bash
+python -m startapp survey
+```
+
+2) model 만들고 url.py 파일 만들고 views.py로 api 만들고 admin으로 각 테이블별 항목 추가.
+
+3) a_core/settings.py에 해당 파일 경로 추가. (INSTALLED_APPS)
+
+웹페이지 개발에 도움을 준 범준님, 민호님 매우 감사합니다.🙇🏻‍♀️
